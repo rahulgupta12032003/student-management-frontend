@@ -190,20 +190,19 @@ const ShowStudents = () => {
                 <div>Loading...</div>
                 :
                 <>
-                    {response ?
-                        <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px' }}>
-                            <GreenButton variant="contained" onClick={() => navigate("/Admin/addstudents")}>
-                                Add Students
-                            </GreenButton>
-                        </Box>
-                        :
-                        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-                            {Array.isArray(studentsList) && studentsList.length > 0 &&
-                                <TableTemplate buttonHaver={StudentButtonHaver} columns={studentColumns} rows={studentRows} />
-                            }
-                            <SpeedDialTemplate actions={actions} />
-                        </Paper>
-                    }
+                    <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px', marginBottom: '16px' }}>
+                        <GreenButton variant="contained" onClick={() => navigate("/Admin/addstudents")}>
+                            Add Student
+                        </GreenButton>
+                    </Box>
+                    <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+                        {Array.isArray(studentsList) && studentsList.length > 0 &&
+                            <TableTemplate buttonHaver={StudentButtonHaver} columns={studentColumns} rows={studentRows} />
+                        }
+                        <SpeedDialTemplate actions={actions} />
+                    </Paper>
+
+
                 </>
             }
             <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup} />

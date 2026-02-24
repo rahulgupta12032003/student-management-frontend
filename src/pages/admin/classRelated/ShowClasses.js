@@ -148,19 +148,18 @@ const ShowClasses = () => {
         <div>Loading...</div>
         :
         <>
-          {getresponse ?
-            <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px' }}>
-              <GreenButton variant="contained" onClick={() => navigate("/Admin/addclass")}>
-                Add Class
-              </GreenButton>
-            </Box>
-            :
-            <>
-              {Array.isArray(sclassesList) && sclassesList.length > 0 &&
-                <TableTemplate buttonHaver={SclassButtonHaver} columns={sclassColumns} rows={sclassRows} />
-              }
-              <SpeedDialTemplate actions={actions} />
-            </>}
+        <>
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px', marginBottom: '16px' }}>
+            <GreenButton variant="contained" onClick={() => navigate("/Admin/addclass")}>
+              Add Class
+            </GreenButton>
+          </Box>
+          {Array.isArray(sclassesList) && sclassesList.length > 0 &&
+            <TableTemplate buttonHaver={SclassButtonHaver} columns={sclassColumns} rows={sclassRows} />
+          }
+          <SpeedDialTemplate actions={actions} />
+        </>
+
         </>
       }
       <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup} />

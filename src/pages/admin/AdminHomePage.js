@@ -1,5 +1,8 @@
-import { Container, Grid, Paper } from '@mui/material'
+import { Container, Grid, Paper, Button } from '@mui/material'
+import { useNavigate } from 'react-router-dom';
 import SeeNotice from '../../components/SeeNotice';
+
+
 import Students from "../../assets/img1.png";
 import Classes from "../../assets/img2.png";
 import Teachers from "../../assets/img3.png";
@@ -32,6 +35,8 @@ const AdminHomePage = () => {
     const numberOfClasses = sclassesList && sclassesList.length;
     const numberOfTeachers = teachersList && teachersList.length;
 
+    const navigate = useNavigate();
+
     return (
         <>
             <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
@@ -43,6 +48,9 @@ const AdminHomePage = () => {
                                 Total Students
                             </Title>
                             <Data start={0} end={numberOfStudents} duration={2.5} />
+                            <Button variant="contained" onClick={() => navigate("/Admin/addstudents")}>
+                                Add Students
+                            </Button>
                         </StyledPaper>
                     </Grid>
                     <Grid item xs={12} md={3} lg={3}>
@@ -52,6 +60,9 @@ const AdminHomePage = () => {
                                 Total Classes
                             </Title>
                             <Data start={0} end={numberOfClasses} duration={5} />
+                            <Button variant="contained" onClick={() => navigate("/Admin/addclass")}>
+                                Add Classes
+                            </Button>
                         </StyledPaper>
                     </Grid>
                     <Grid item xs={12} md={3} lg={3}>
@@ -61,8 +72,12 @@ const AdminHomePage = () => {
                                 Total Teachers
                             </Title>
                             <Data start={0} end={numberOfTeachers} duration={2.5} />
+                            <Button variant="contained" onClick={() => navigate("/Admin/teachers/chooseclass")}>
+                                Add Teachers
+                            </Button>
                         </StyledPaper>
                     </Grid>
+
                     <Grid item xs={12} md={3} lg={3}>
                         <StyledPaper>
                             <img src={Fees} alt="Fees" />
@@ -87,7 +102,7 @@ const StyledPaper = styled(Paper)`
   padding: 16px;
   display: flex;
   flex-direction: column;
-  height: 200px;
+  height: 250px;
   justify-content: space-between;
   align-items: center;
   text-align: center;

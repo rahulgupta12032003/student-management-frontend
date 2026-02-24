@@ -89,21 +89,21 @@ const ShowSubjects = () => {
                 <div>Loading...</div>
                 :
                 <>
-                    {response ?
-                        <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px' }}>
-                            <GreenButton variant="contained"
-                                onClick={() => navigate("/Admin/subjects/chooseclass")}>
-                                Add Subjects
-                            </GreenButton>
-                        </Box>
-                        :
-                        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-                            {Array.isArray(subjectsList) && subjectsList.length > 0 &&
-                                <TableTemplate buttonHaver={SubjectsButtonHaver} columns={subjectColumns} rows={subjectRows} />
-                            }
-                            <SpeedDialTemplate actions={actions} />
-                        </Paper>
-                    }
+                <>
+                    <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px', marginBottom: '16px' }}>
+                        <GreenButton variant="contained"
+                            onClick={() => navigate("/Admin/subjects/chooseclass")}>
+                            Add Subject
+                        </GreenButton>
+                    </Box>
+                    <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+                        {Array.isArray(subjectsList) && subjectsList.length > 0 &&
+                            <TableTemplate buttonHaver={SubjectsButtonHaver} columns={subjectColumns} rows={subjectRows} />
+                        }
+                        <SpeedDialTemplate actions={actions} />
+                    </Paper>
+                </>
+
                 </>
             }
             <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup} />
